@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+.navbar-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* Espaciado entre los elementos */
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 250px;
+  background-color: #343a40; /* Color oscuro para la barra */
+  padding-top: 20px;
+  z-index: 1000; /* Para que siempre esté por encima del contenido */
+}
+
+.sidebar .nav-link {
+  color: #ffffff;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #495057;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.btnLangContainer {
+  float: right;
+  margin-right: 10%;
+  margin-top: 3%;
+}
+
+.tituloSeccion {
+  color: #6e64bf; /* El color que prefieras */
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+
+  text-align: right; /* Si quieres centrar los títulos */
+  margin-right: 15%;
+}
+
+.content {
+  margin-left: 260px; /* Desplaza el contenido principal a la derecha */
+  padding: 20px;
+}
+
+body {
+  /* background-color: aliceblue; */
+  background-image: url('assets/img/fondoBody.jpg');
+}
+
+.nav-item {
+  flex: 1 1 calc(50% - 20px); /* Cada elemento ocupará la mitad del ancho */
+  display: flex;
+  justify-content: center;
+}
+
+.custom-title {
+  font-size: 3.5rem;
+  background: linear-gradient(90deg, #e6728d, #80c3df);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+  animation: pulse 3s infinite;
+  font-family: 'Montserrat', sans-serif; /* Cambia la tipografía a Montserrat */
+  font-weight: 800; /* Peso de la fuente más grueso */
+  margin: 20px 0;
+  letter-spacing: 1px; /* Un ligero espaciado entre letras para darle estilo */
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-info, .btn-danger {
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.btn-lang {
+  display: flex;
+  justify-content: center;
+  width: 20px;
+  margin-left: 10%;
+}
+
+.table thead th {
+  text-align: center;
+  vertical-align: middle; /* Alinear verticalmente al centro */
+}
+
+/* Alinear el texto al centro en las celdas del cuerpo de la tabla */
+.table tbody td {
+  text-align: center;
+  vertical-align: middle; /* Alinear verticalmente al centro */
+}
+@keyframes pulse {
+  0%, 100% {
+    text-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    text-shadow: 5px 5px 30px rgba(0, 0, 0, 0.6);
+  }
+}
+
+.icon-up::before {
+  color: white;
+}
+
+.icon-down::before {
+  color: white;
+}
+
+
+
+
+

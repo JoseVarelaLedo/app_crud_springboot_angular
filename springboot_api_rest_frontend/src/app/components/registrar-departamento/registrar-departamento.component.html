@@ -1,0 +1,36 @@
+<div class="col-md-6 offset-md-3">
+  <h2 class="tituloSeccion">{{ 'newDepartmentFormTitle' | translate }}</h2>
+  <form (ngSubmit)="onSubmit()" #departamentoForm="ngForm">
+
+    <!-- Campo Nombre del Departamento -->
+    <div class="form-group">
+      <label for="nombre">{{ 'nameFieldForm' | translate }}</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        [(ngModel)]="departamento.nombreDepartamento"
+        name="nombre"
+        required
+        minlength="4"
+        maxlength="20"
+        placeholder="{{ 'departmentNameFormPlaceholder' | translate }}"
+        #nombreDepartamento="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="nombreDepartamento.invalid && (nombreDepartamento.dirty || nombreDepartamento.touched)">
+        <div *ngIf="nombreDepartamento.errors?.['required']">
+          {{ 'emptyDepartmentNameFormError' | translate }}
+        </div>
+        <div *ngIf="nombreDepartamento.errors?.['minlength']">
+          {{ 'minLengthDepartmentNameFormError' | translate: { minLength: nombreDepartamento.errors?.['minlength']?.requiredLength } }}
+        </div>
+        <div *ngIf="nombreDepartamento.errors?.['maxlength']">
+          {{ 'maxLengthDepartmentNameFormError' | translate: { maxLength: nombreDepartamento.errors?.['maxlength']?.requiredLength } }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón de enviar -->
+    <button class="btn btn-success" [disabled]="!departamentoForm.form.valid" type="submit">{{ 'saveChangesButton' | translate }}</button>
+  </form>
+</div>

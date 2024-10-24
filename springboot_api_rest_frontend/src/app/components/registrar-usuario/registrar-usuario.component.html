@@ -1,0 +1,81 @@
+<div class="col-md-6 offset-md-3">
+  <h2 class="tituloSeccion">{{ 'newUserFormTitle' | translate }}</h2>
+  <form (ngSubmit)="onSubmit()" #usuarioForm="ngForm">
+    <div class="form-group">
+      <label for="nickname">{{ 'nicknameFormField' | translate }} </label>
+      <input
+        type="text"
+        class="form-control"
+        id="nickname"
+        [(ngModel)]="usuario.nickname"
+        name="nickname"
+        required
+        minlength="4"
+        maxlength="15"
+        placeholder="{{ 'nicknameFormPlaceholder' | translate }}"
+        #nickname="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="nickname.invalid && (nickname.dirty || nickname.touched)">
+        <div *ngIf="nickname.errors?.['required']">
+          {{ 'emptyNicknameFormError' | translate }}
+        </div>
+        <div *ngIf="nickname.errors?.['minlength']">
+          {{ 'minLengthNicknameFormError' | translate: { minLength: nickname.errors?.['minlength']?.requiredLength } }}
+        </div>
+        <div *ngIf="nickname.errors?.['maxlength']">
+          {{ 'maxLengthNicknameFormError' | translate: { maxLength: nickname.errors?.['maxlength']?.requiredLength } }}
+        </div>
+      </div>
+
+      <label for="contrasena">{{ 'passwordFormField' | translate }} </label>
+      <input
+        type="password"
+        class="form-control"
+        id="contrasena"
+        [(ngModel)]="usuario.contrasena"
+        name="contrasena"
+        required
+        minlength="4"
+        maxlength="12"
+        placeholder="{{ 'passwordFormPlaceholder' | translate }}"
+        #contrasena="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="contrasena.invalid && (contrasena.dirty || contrasena.touched)">
+        <div *ngIf="contrasena.errors?.['required']">
+          {{ 'requiredPasswordError' | translate }}
+        </div>
+        <div *ngIf="contrasena.errors?.['minlength']">
+          {{ 'minLengthPasswordError' | translate: { minLength: contrasena.errors?.['minlength']?.requiredLength } }}
+        </div>
+        <div *ngIf="contrasena.errors?.['maxlength']">
+          {{ 'maxLengthPasswordError' | translate: { maxLength: contrasena.errors?.['maxlength']?.requiredLength } }}
+        </div>
+      </div>
+
+      <label for="rolID">{{ 'rolIdFormField' | translate }} </label>
+      <input
+        type="number"
+        class="form-control"
+        id="rolID"
+        pattern="^[1-9]\d*$"
+        [(ngModel)]="usuario.rolID"
+        name="rolID"
+        required
+        #rolID="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="rolID.invalid && (rolID.dirty || rolID.touched)">
+        <div *ngIf="rolID.errors?.['required']">
+          {{ 'requiredFieldError' | translate }}
+        </div>
+        <div *ngIf="rolID.errors?.['pattern']">
+          {{ 'departmentIdPatternError' | translate }}
+        </div>
+      </div>
+      </div>
+
+
+
+
+    <button class="btn btn-success" [disabled]="!usuarioForm.form.valid" type="submit">{{ 'saveChangesButton' | translate }}</button>
+  </form>
+</div>

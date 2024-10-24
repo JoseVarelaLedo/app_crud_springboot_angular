@@ -1,0 +1,45 @@
+<div class="sidebar">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a routerLink="contactos" routerLinkActive="active" class="nav-link">{{'contactList' | translate}}</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="departamentos" routerLinkActive="active" class="nav-link">{{'departmentList' | translate}}</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="empleados" routerLinkActive="active" class="nav-link">{{'employeeList' | translate}}</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="usuarios" routerLinkActive="active" class="nav-link">{{'userList' | translate}}</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="registrar-contacto" routerLinkActive="active" class="nav-link">{{'newContact' | translate}}</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="registrar-departamento" routerLinkActive="active" class="nav-link">{{'newDepartment' | translate}}</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="registrar-empleado" routerLinkActive="active" class="nav-link">{{'newEmployee' | translate}}</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="registrar-usuario" routerLinkActive="active" class="nav-link">{{'newUser' | translate}}</a>
+    </li>
+  </ul>
+</div>
+
+<div class="content">
+
+  <div class = "btnLangContainer">
+    <div class="btn-lang">
+      <button (click)="changeLanguage('es')" class="btn btn-outline-dark me-2"> <img src="assets/ico/es.png" alt="Español" width="30" height="20">{{'spanish' | translate}}</button>
+      <button (click)="changeLanguage('en')" class="btn btn-outline-dark me-2"> <img src="assets/ico/en.png" alt="Español" width="30" height="20">{{'english' | translate}}</button>
+      <button (click)="changeLanguage('gz')" class="btn btn-outline-dark me-2"> <img src="assets/ico/gz.png" alt="Español" width="30" height="20">{{'galician' | translate}}</button>
+    </div>
+  </div>
+
+   <h1 class="custom-title text-center"> {{'applicationTitle' | translate}} </h1>
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

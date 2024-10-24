@@ -1,0 +1,31 @@
+<h2 class="tituloSeccion">{{'userListTitle' | translate}}</h2>
+
+  <table class="table table-striped">
+    <thead class="table-dark">
+      <tr>
+        <th *ngFor="let columna of columnas" (click)="ordenarPor(columna.campo)">
+          {{ columna.titulo }}
+          <span *ngIf="sortField === columna.campo">
+            <i *ngIf="sortDirection === 'asc'" class="fas fa-sort-up"></i>
+            <i *ngIf="sortDirection === 'desc'" class="fas fa-sort-down"></i>
+          </span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.nickname}}</td>
+        <td>{{usuario.nombreRol}}</td>
+        <td>{{usuario.fechaRegistro | date: 'dd/MM/yyyy, h:mm a' }}</td>
+        <td class="button-group">
+          <button (click) = "eliminarUsuario (usuario.id)" class = "btn btn-danger">{{'eraseButton' | translate}}</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="prevPage()" class="btn btn-outline-dark" [disabled]="page === 0">{{'previousPage' |
+    translate}}</button>
+  <button (click)="nextPage()" class="btn btn-outline-dark" [disabled]="page + 1 >= totalPages">{{'nextPage' |
+    translate}}</button>

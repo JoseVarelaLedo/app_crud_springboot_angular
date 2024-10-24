@@ -1,0 +1,140 @@
+<div class="col-md-6 offset-md-3">
+  <h2  class="tituloSeccion">{{'editContactTitle' | translate}}</h2>
+  <form (ngSubmit)="onSubmit()" #contactoForm="ngForm">
+    <div class="form-group">
+      <label for="nombre">{{'nameFieldForm' | translate}} </label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        [(ngModel)]="contacto.nombre"
+        name="nombre"
+        required
+        minlength="4"
+        maxlength="20"
+        placeholder="{{'nameFormPlaceholder' | translate}}"
+        #nombre="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+        <div *ngIf="nombre.errors?.['required']">
+          {{'emptyNameFormError' | translate}}
+        </div>
+        <div *ngIf="nombre.errors?.['minlength']">
+          {{ 'minLengthNameFormError' | translate: { minLength: nombre.errors?.['minlength']?.requiredLength } }}
+        </div>
+        <div *ngIf="nombre.errors?.['maxlength']">
+          {{ 'maxLengthNameFormError' | translate: { maxLength: nombre.errors?.['maxlength']?.requiredLength } }}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="apellidos">{{'surnameFieldForm' | translate}}</label>
+      <input
+        type="text"
+        class="form-control"
+        id="apellidos"
+        [(ngModel)]="contacto.apellidos"
+        name="apellidos"
+        required
+        minlength="4"
+        maxlength="35"
+        placeholder="{{'surnameFormPlaceholder' | translate}}"
+        #apellidos="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="apellidos.invalid && (apellidos.dirty || apellidos.touched)">
+        <div *ngIf="apellidos.errors?.['required']">
+          {{'emptySurnameFormError' | translate}}
+        </div>
+        <div *ngIf="apellidos.errors?.['minlength']">
+          {{ 'minLengthSurnameFormError' | translate: { minLength: apellidos.errors?.['minlength']?.requiredLength } }}
+        </div>
+        <div *ngIf="apellidos.errors?.['maxlength']">
+          {{ 'maxLengthSurnameFormError' | translate: { maxLength: apellidos.errors?.['maxlength']?.requiredLength } }}
+
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="telefono"> {{'phoneFieldForm' | translate}} </label>
+      <input
+        type="text"
+        class="form-control"
+        id="telefono"
+        [(ngModel)]="contacto.telefono"
+        name="telefono"
+        pattern="^\d{9}$"
+        required
+        minlength="9"
+        maxlength="9"
+        placeholder="{{'phoneFormPlaceholder' | translate}}"
+        #telefono="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="telefono.invalid && (telefono.dirty || telefono.touched)">
+        <div *ngIf="telefono.errors?.['required']">
+          {{'emptyPhoneFormError' | translate}}
+        </div>
+        <div *ngIf="telefono.errors?.['minlength']">
+          {{ 'phoneFormatError' | translate: { minLength: telefono.errors?.['minlength']?.requiredLength } }}
+        </div>
+        <div *ngIf="telefono.errors?.['maxlength']">
+          {{ 'phoneFormatError' | translate: { maxLength: telefono.errors?.['maxlength']?.requiredLength } }}
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="email">{{'emailFieldForm' | translate}} </label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        [(ngModel)]="contacto.email"
+        name="email"
+        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        required
+        placeholder="{{'emailFormPlaceholder' | translate}}"
+        #email="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
+        <div *ngIf="email.errors?.['required']">
+          {{'emptyMailFormError' | translate}}
+        </div>
+        <div *ngIf="email.errors?.['pattern']">
+          {{'invalidMailFormError' | translate}}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="direccion"> {{'addressFieldForm' | translate}} </label>
+      <input
+        type="text"
+        class="form-control"
+        id="direccion"
+        [(ngModel)]="contacto.direccion"
+        name="direccion"
+        required
+        minlength="5"
+        maxlength="50"
+        placeholder="{{'addressFormPlaceholder' | translate}}"
+        #direccion="ngModel"
+      />
+      <div class="alert alert-danger" *ngIf="direccion.invalid && (direccion.dirty || direccion.touched)">
+        <div *ngIf="direccion.errors?.['required']">
+          {{'emptyAddressFormError' | translate}}
+        </div>
+        <div *ngIf="direccion.errors?.['minlength']">
+          {{ 'minLengthAddressFormError' | translate: { minLength: direccion.errors?.['minlength']?.requiredLength } }}
+        </div>
+        <div *ngIf="direccion.errors?.['maxlength']">
+          {{ 'maxLengthAddressFormError' | translate: { maxLength: direccion.errors?.['maxlength']?.requiredLength } }}
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-success" [disabled]="!contactoForm.form.valid" type="submit">{{'saveChangesButton' | translate}}</button>
+  </form>
+</div>
